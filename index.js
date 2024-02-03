@@ -17,7 +17,7 @@ server.use(cors());
 server.use(express.json()); //body parser
 // server.use(express.urlencoded());
 server.use('/auth', authRouter.router);
-// server.use('/users',authChecker.auth, userRouter.router);
+server.use('/users',authChecker.auth, userRouter.router);
 server.use('/products',authChecker.auth, productRouter.router);
 
 server.use(express.static(process.env.PUBLIC_DIR));
