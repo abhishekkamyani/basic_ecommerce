@@ -1,6 +1,7 @@
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
-const publicKey = fs.readFileSync("./jwt_keys/public.key");
+const path = require('path');
+const publicKey = fs.readFileSync(path.resolve(__dirname, "./jwt_keys/public.key"));
 exports.auth = (req, res, next) => {
   try {
     const token = req.get("Authorization").split("Bearer ")[1];
